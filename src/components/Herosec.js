@@ -1,13 +1,11 @@
 import Sneakers from "./Sneakers";
 import Header from "./Header";
 import { useState, useEffect, useRef } from "react";
-import { TERipple } from "tw-elements-react";
 import fake from "../images/counterfeit-text-red-round-grungy-stamp-texture-217814824.jpg"
 import claim from "../images/claim.png";
 import { useParams, useLocation } from "react-router-dom";
 import certificate from "../images/certificate.png";
 import cartImg from "../images/img1-icon.jpg";
-import { Chrono } from "react-chrono";
 import product from '../images/product-design-sketch-name.png'
 import load from "../images/Animation - 1702820512387.gif"
 import "./hero.css";

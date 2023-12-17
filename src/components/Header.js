@@ -1,0 +1,59 @@
+import headerImg from "../images/image-avatar.png";
+import { useEffect, useRef, useState } from "react";
+import arvologo from "../images/arvo-logo.jpg"
+const Header = (props) => {
+  const myRef = useRef(null);
+  const [flag, setFlag] = useState(false);
+  useEffect(() => {
+    if (props.cartItems[0] === 0) {
+      myRef.current.style.display = "none";
+    } else {
+      myRef.current.style.display = "block";
+    }
+  }, [props.cartItems[0]]);
+
+  return (
+    <header>
+      <div className="header-div">
+        <div className="header-row">
+          <div className="header-col header-col1">
+            <img src={arvologo} height={80} width={80}/>
+           
+          </div>
+       
+          <div className="header-col header-col3">
+            <div className="cart-sec">
+              <div
+                className="cart-parent"
+                onClick={() => {
+                  document
+                    .querySelector(".cart-box")
+                    .classList.toggle("cart-box-toggle");
+                }}
+              >
+                <span ref={myRef} className="cart-notification">
+                  {props.cartItems[0]}
+                </span>
+                <svg
+                  className="cart"
+                  width="22"
+                  height="20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                    fill="#69707D"
+                    fillRule="nonzero"
+                  />
+                </svg>
+              </div>
+           
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+};
+
+export default Header;
